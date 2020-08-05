@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+  </head>
+  <body>
+    <form>
+        {% with ''|center:num_vars as range %}
+        {% for _ in range %}
+        <label for="var_{{ forloop.counter0 }}">Var {{ forloop.counter0 }}:</label>
+        <input type="text" id="var_{{ forloop.counter0 }}" name="var_{{ forloop.counter0 }}">
+        {% endfor %}
+        {% endwith %}
+        <input type="submit" value="Submit">
+    </form>
+    {% if result %}
+    <div>{{ result }}</div>
+    {% endif %}
+  </body>
+</html>
