@@ -38,6 +38,10 @@ def run(mul_1, mul_2, mul_3):
     return float(mul_1) * float(mul_2) * float(mul_3)
 ```
 
+Rules of updating the function:
+1. Variable names and number of variables are changeable, such as
+2. Variables are always strings, and thus you should always cast the variables to the desired format
+
 ### Run
 ```bash
 > python manage.py runserver
