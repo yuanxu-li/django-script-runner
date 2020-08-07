@@ -1,15 +1,17 @@
-from django.http import HttpResponse
 from django.shortcuts import render
-from django.template import loader
-from .scripts import num_vars, add_func
+from .scripts import run
 
 # Create your views here.
 def index(request):
-    context = {'num_vars': num_vars}
+    var_names = run.__code__.co_varnames
+    context = {
+        'var_names': var_names,
+        'func_name': run.__code__.co_name
+    }
     # Get all vars from the form if available
-    vars = [request.GET.get('var_' + str(i), '') for i in range(num_vars)]
-    if all(vars):
-        result = add_func(*vars)
+    var_values = [request.GET.get(var_name, '') for var_name in var_names]
+    if all(var_values):
+        result = run(*var_values)
         context['result'] = result
     return render(
         request=request,
