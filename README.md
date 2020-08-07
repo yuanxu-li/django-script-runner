@@ -20,7 +20,7 @@ Assume you want to demonstrate a multiply function of three floats
 > git clone git@github.com:yuanxu-li/django-script-runner.git
 ```
 
-### Upload
+### Update
 ```bash
 > vi django-script-runner/scripts/scripts.py
 ```
